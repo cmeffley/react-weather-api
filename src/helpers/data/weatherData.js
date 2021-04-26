@@ -4,8 +4,8 @@ import firebaseConfig from '../apiKeys';
 const url = 'https://api.openweathermap.org/data/2.5/weather';
 const api = firebaseConfig.apiKey;
 
-const getWeather = () => new Promise((resolve, reject) => {
-  axios.get(`${url}?q=Boise&appid=${api}`)
+const getWeather = (city) => new Promise((resolve, reject) => {
+  axios.get(`${url}?q=${city}&appid=${api}&units=imperial`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
