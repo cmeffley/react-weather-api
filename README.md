@@ -1,7 +1,7 @@
-# React Template
+# Weather API
 
-**Use this template to get up and running quickly on projects.**
+### Features
+- Search by City name to find the current weather
+- The current weather shows up in a card about the search form
 
-This is just like the webpack template. Use it, create the repo, connect it to your local and `npm i`.
-
-- [Steps to deploy](https://github.com/nss-nightclass-projects/REACT-Deployment-Netlify)
+#### [GitHub Repositiry](https://github.com/cmeffley/react-weather-api)
