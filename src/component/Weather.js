@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import {
+  Form,
   Card,
   CardImg,
-  CardTitle,
-  CardText
+  CardText,
+  Button
 } from 'reactstrap';
 import getWeather from '../helpers/data/weatherData';
 
@@ -20,29 +21,29 @@ const Weather = () => {
     <>
     <Card id="weatherCard">
       {data
-        ? <><CardTitle tag="h3">{data.name}</CardTitle>
-        <CardImg top width="50%" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+        ? <><CardImg id="image" top src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+        <CardText tag="h4">{data.name}</CardText>
         <CardText>{data.weather[0].main}</CardText>
-        <CardText>Temperature: {data.main.temp}</CardText>
+        <CardText>{data.main.temp} Degrees | {data.weather[0].description}</CardText>
         <CardText>Wind Speed: {data.wind.speed}</CardText>
-        <CardText>Description: {data.weather[0].description}</CardText>
        </> : null}
     </Card>
-      <form
+      <Form
       id="searchWeather"
       onSubmit={(e) => {
         e.preventDefault();
         forecastRequest();
       }}>
+        <h4>{'Search the Weather'}</h4><hr />
         <input
           name="city"
           type="text"
           placeholder="Enter City"
           value={city}
           onChange={(e) => setCity(e.target.value)}
-        />
-        <button type="submit">Get Weather</button>
-      </form>
+        /><br /><br />
+        <Button color="info" type="submit">Get Weather</Button>
+      </Form>
     </>
   );
 };
