@@ -1,6 +1,25 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import 'variables';
+@import '_variables';
 
 body {
   background-color: $favColor;
+}
+
+#weatherCard {
+  margin: auto;
+  width: 50%;
+
+  #image {
+    background-color: gray;
+    margin: auto;
+    height: 300px;
+    width: 200px;
+  }
+}
+
+#searchWeather {
+  background-color: rgb(243, 202, 215);
+  width: 40%;
+  margin: auto;
+  border-radius: 25px;
 }
