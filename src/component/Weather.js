@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import {
+  Card,
+  CardImg,
+  CardTitle,
+  CardText
+} from 'reactstrap';
 import getWeather from '../helpers/data/weatherData';
 
 const Weather = () => {
@@ -12,9 +18,16 @@ const Weather = () => {
 
   return (
     <>
-    <div>
-      {data ? <h3>{data.name} {data.main.temp}</h3> : null}
-    </div>
+    <Card id="weatherCard">
+      {data
+        ? <><CardTitle tag="h3">{data.name}</CardTitle>
+        <CardImg top width="50%" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+        <CardText>{data.weather[0].main}</CardText>
+        <CardText>Temperature: {data.main.temp}</CardText>
+        <CardText>Wind Speed: {data.wind.speed}</CardText>
+        <CardText>Description: {data.weather[0].description}</CardText>
+       </> : null}
+    </Card>
       <form
       id="searchWeather"
       onSubmit={(e) => {
